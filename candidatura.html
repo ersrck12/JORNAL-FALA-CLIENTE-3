@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidatura - Portal Fala Cliente</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; padding: 50px; }
+        .form-box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 400px; width: 100%; border-top: 5px solid #003366; position: relative; }
+        h2 { color: #003366; margin-top: 0; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background: #f2b705; border: none; padding: 15px; width: 100%; margin-top: 20px; font-weight: bold; cursor: pointer; color: #003366; border-radius: 4px; }
+        button:hover { background: #d9a404; }
+        .back { display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none; font-size: 0.9rem; }
+        
+        /* Estilo da mensagem de sucesso */
+        #success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-box">
+    <div id="success-message">Sua candidatura foi enviada com sucesso!</div>
+
+    <h2>Candidatar-se à Vaga</h2>
+    
+    <form id="formCandidatura">
+        <label>Nome Completo:</label>
+        <input type="text" id="nome" required>
+
+        <label>E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label>Telefone:</label>
+        <input type="tel" id="tel" placeholder="(41) 99999-9999" required>
+
+        <label>Escolaridade:</label>
+        <select id="escolaridade">
+            <option value="estudo">Estudo Pendente</option>
+            <option value="medio_incompleto">Ensino Médio Incompleto</option>
+            <option value="medio_completo">Ensino Médio Completo</option>
+            <option value="superior">Ensino Superior</option>
+        </select>
+
+        <label>Resumo de Experiência:</label>
+        <textarea id="resumo" rows="4"></textarea>
+
+        <button type="submit">ENVIAR CANDIDATURA</button>
+    </form>
+
+    <a href="site vagas e clasificações.html" class="back">← Voltar para as vagas</a>
+</div>
+
+<script>
+    document.getElementById('formCandidatura').addEventListener('submit', function(event) {
+        // Impede o formulário de recarregar a página imediatamente
+        event.preventDefault();
+
+        // Mostra a mensagem de sucesso
+        const msg = document.getElementById('success-message');
+        msg.style.display = 'block';
+
+        // Desabilita o botão para evitar múltiplos cliques
+        const btn = document.querySelector('button');
+        btn.disabled = true;
+        btn.innerText = "Enviando...";
+
+        // Aguarda 3 segundos e volta para o site de vagas
+        setTimeout(function() {
+            window.location.href = "site vagas e clasificações.html";
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
