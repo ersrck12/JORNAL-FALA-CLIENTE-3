@@ -1,0 +1,261 @@
+/* =========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================= */
+:root {
+    --azul-senac: #003366;
+    --amarelo-senac: #f2b705;
+    --branco: #ffffff;
+    --cinza-claro: #f4f4f4;
+    --texto: #333333;
+    --preto-modal: rgba(0, 0, 0, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. CABEÇALHO E LOGO (ESTILO SENAC)
+   ========================================= */
+header {
+    border-bottom: 6px solid var(--amarelo-senac);
+    padding: 15px 20px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-container img {
+    max-width: 230px; /* Logo maior conforme solicitado */
+    height: auto;
+}
+
+h1 {
+    color: var(--azul-senac);
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* =========================================
+   3. MENU DE NAVEGAÇÃO
+   ========================================= */
+nav {
+    background-color: var(--azul-senac);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-top: -6px; /* Ajuste para colar na borda amarela */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    padding: 12px 25px;
+    display: block;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--amarelo-senac);
+    color: var(--azul-senac);
+}
+
+/* =========================================
+   4. LAYOUT PRINCIPAL E GRIDS
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 30px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2.section-title {
+    border-left: 10px solid var(--amarelo-senac);
+    padding-left: 15px;
+    color: var(--azul-senac);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.manchetes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background: var(--cinza-claro);
+    padding: 20px;
+    border-bottom: 4px solid var(--azul-senac);
+    height: 100%;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 200px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #555;
+    font-weight: bold;
+}
+
+.video-box {
+    background: #222;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--amarelo-senac);
+    border: 2px solid var(--azul-senac);
+}
+
+/* =========================================
+   5. BARRA LATERAL (SIDEBAR)
+   ========================================= */
+aside {
+    border-left: 1px solid #eee;
+    padding-left: 10px;
+}
+
+.sidebar-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--cinza-claro);
+}
+
+.section-title-small {
+    color: var(--azul-senac);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--amarelo-senac);
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.sac-box {
+    background-color: var(--amarelo-senac);
+    color: var(--azul-senac);
+    cursor: pointer; /* Indica que é clicável para o QR Code */
+    transition: 0.3s;
+}
+
+.sac-box:hover {
+    filter: brightness(0.9);
+}
+
+.alt-border {
+    border-left-color: var(--azul-senac);
+}
+
+.sidebar-item ul {
+    list-style: none;
+}
+
+.sidebar-item ul li {
+    font-size: 0.9rem;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+/* =========================================
+   6. MODAL DO QR CODE (TELA CHEIA)
+   ========================================= */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; /* Acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--preto-modal);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content {
+    text-align: center;
+    color: white;
+}
+
+#img-qrcode {
+    max-width: 90%;
+    max-height: 70vh;
+    border: 12px solid white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--amarelo-senac);
+}
+
+/* =========================================
+   7. RODAPÉ E RESPONSIVIDADE
+   ========================================= */
+footer {
+    background-color: var(--azul-senac);
+    color: var(--branco);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 6px solid var(--amarelo-senac);
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .container { grid-template-columns: 1fr; }
+    .manchetes-grid { grid-template-columns: 1fr; }
+    nav { margin-top: 0; }
+    h1 { font-size: 1.8rem; }
+}

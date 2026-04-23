@@ -1,0 +1,23 @@
+/* Força a logo-area a ser um bloco de linha (flex) */
+.logo-area {
+    display: flex !important;
+    flex-direction: row !important; /* Garante que fiquem lado a lado */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px;
+}
+
+/* Força o tamanho da imagem */
+img.logo-img {
+    width: 20px !important;  /* Teste com 60px, se quiser menor, coloque 40px */
+    height: auto !important;
+    max-width: 20px !important;
+    display: inline-block !important;
+}
+
+/* Ajuste do texto para não ficar gigante ao lado da logo */
+.logo-area h1 {
+    font-size: 2rem !important;
+    margin: 0 !important;
+    display: inline-block !important;
+}
